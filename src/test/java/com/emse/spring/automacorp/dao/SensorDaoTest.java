@@ -14,7 +14,7 @@ class SensorDaoTest {
     private SensorDao sensorDao;
 
     @Test
-    public void shouldFindAWindowById() {
+    public void shouldFindASensorById() {
         SensorEntity sensor = sensorDao.getReferenceById(-10L); // (3)
         Assertions.assertThat(sensor.getName()).isEqualTo("Temperature room 2");
         Assertions.assertThat(sensor.getValue()).isEqualTo(21.3);

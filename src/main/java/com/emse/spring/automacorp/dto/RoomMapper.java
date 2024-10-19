@@ -5,20 +5,31 @@ import com.emse.spring.automacorp.model.RoomEntity;
 import com.emse.spring.automacorp.model.WindowEntity;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
 public class RoomMapper {
     public static Room of(RoomEntity room) {
-        List<WindowEntity> windows = room.getWindows().stream().toList();
-        ArrayList<Window> wind = new ArrayList<Window>();
-        for(WindowEntity w : windows){
-            wind.add(WindowMapper.of(w));
+        List<Window> wind = new ArrayList<Window>().stream().toList();
+        List<Heater> heat = new ArrayList<Heater>().stream().toList();
+        try {
+            wind = room.getWindows().stream()
+                    .map(WindowMapper::of)
+                    .sorted(Comparator.comparing(Window::id))
+                    .toList();
         }
-        List<HeaterEntity> heaters = room.getHeaters().stream().toList();
-        ArrayList<Heater> heats = new ArrayList<Heater>();
-        for(HeaterEntity h : heaters){
-            heats.add(HeaterMapper.of(h));
+        catch (Exception ignored){
+
+        }
+        try {
+            heat = room.getHeaters().stream()
+                    .map(HeaterMapper::of)
+                    .sorted(Comparator.comparing(Heater::id))
+                    .toList();
+        }
+        catch (Exception ignored){
+
         }
         return new Room(
                 room.getId(),
@@ -26,8 +37,8 @@ public class RoomMapper {
                 room.getFloor(),
                 room.getCurrentTemperature().getValue(),
                 room.getTargetTemperature(),
-                wind.stream().toList(),
-                heats.stream().toList()
+                wind,
+                heat
         );
     }
 }

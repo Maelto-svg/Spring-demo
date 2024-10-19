@@ -1,4 +1,6 @@
 package com.emse.spring.automacorp.api;
 
-public class RoomCommand {
+import com.emse.spring.automacorp.model.SensorEntity;
+
+public record RoomCommand (String name, SensorEntity sensor, Integer floor){
 }

@@ -49,8 +49,8 @@ public class WindowEntity {
         return windowStatus;
     }
 
-    public void setWindowStatus(SensorEntity windowStatus) {
-        this.windowStatus = windowStatus;
+    public void setWindowStatus(Double windowStatus) {
+        this.windowStatus.setValue(windowStatus);;
     }
 
     public RoomEntity getRoom() {

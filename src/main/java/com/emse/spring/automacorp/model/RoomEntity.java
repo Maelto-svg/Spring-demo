@@ -1,5 +1,6 @@
 package com.emse.spring.automacorp.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -27,12 +28,29 @@ public class RoomEntity {
     @OneToMany(mappedBy = "room")
     private Set<WindowEntity> windows = Set.of();
 
+    @ManyToOne
+    private BuildingEntity building;
+
+    @OneToMany(mappedBy = "room")
+    private Set<HeaterEntity> heaters = Set.of();
+
     public RoomEntity() {
     }
 
-    public RoomEntity(Integer floor, String name) {
+    public RoomEntity(Integer floor, String name, BuildingEntity b) {
         this.floor = floor;
         this.name = name;
+        this.building =b;
+    }
+
+    public RoomEntity(String name, SensorEntity sensor, Integer floor) {
+        this.floor = floor;
+        this.name = name;
+        this.currentTemperature = sensor;
+    }
+
+    public RoomEntity(Long id) {
+        this.id = id;
     }
 
     public Long getId() {
@@ -81,5 +99,21 @@ public class RoomEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setBuilding(BuildingEntity building) {
+        this.building = building;
+    }
+
+    public BuildingEntity getBuilding() {
+        return building;
+    }
+
+    public void setHeaters(Set<HeaterEntity> heaterEntity) {
+        this.heaters = heaterEntity;
+    }
+
+    public Set<HeaterEntity> getHeaters() {
+        return heaters;
     }
 }

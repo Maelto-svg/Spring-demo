@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 
 @Entity
 @Table(name = "SP_BUILDING")
@@ -17,16 +18,18 @@ public class BuildingEntity {
     private String name;
 
     @OneToMany(mappedBy = "building")
-    private ArrayList<RoomEntity> rooms = new ArrayList<>();
+    private Set<RoomEntity> rooms = Set.of();
     
     
-    
+    public BuildingEntity(){
+        this.name = "Building";
+    }
     public BuildingEntity(long l, String building) {
         this.id = l;
         this.name = building;
     }
 
-    public ArrayList<RoomEntity> getRooms() {
+    public Set<RoomEntity> getRooms() {
         return this.rooms;
     }
 

@@ -18,6 +18,10 @@ public class HeaterEntity {
 
     @ManyToOne
     private RoomEntity room;
+
+    public HeaterEntity(){
+    }
+
     public HeaterEntity(String name, SensorEntity sensorEntity, RoomEntity roomEntity) {
         this.name = name;
         this.sensor = sensorEntity;
