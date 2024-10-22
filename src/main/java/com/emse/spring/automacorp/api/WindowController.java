@@ -3,7 +3,6 @@ package com.emse.spring.automacorp.api;
 import com.emse.spring.automacorp.dao.RoomDao;
 import com.emse.spring.automacorp.dao.SensorDao;
 import com.emse.spring.automacorp.dao.WindowDao;
-import com.emse.spring.automacorp.dto.Room;
 import com.emse.spring.automacorp.dto.Window;
 import com.emse.spring.automacorp.dto.WindowMapper;
 import com.emse.spring.automacorp.model.RoomEntity;

@@ -5,12 +5,7 @@ import com.emse.spring.automacorp.dao.RoomDao;
 import com.emse.spring.automacorp.dao.SensorDao;
 import com.emse.spring.automacorp.dto.Room;
 import com.emse.spring.automacorp.dto.RoomMapper;
-import com.emse.spring.automacorp.dto.Sensor;
-import com.emse.spring.automacorp.dto.SensorMapper;
-import com.emse.spring.automacorp.model.RoomEntity;
-import com.emse.spring.automacorp.model.SensorEntity;
 import jakarta.transaction.Transactional;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
@@ -24,11 +19,9 @@ import java.util.stream.Collectors;
 public class RoomControler {
 
     private final RoomDao roomDao;
-    private final SensorDao sensorDao;
 
-    public RoomControler(RoomDao roomDao, SensorDao sensorDao){
+    public RoomControler(RoomDao roomDao){
         this.roomDao = roomDao;
-        this.sensorDao = sensorDao;
     }
 
     @GetMapping // (5)

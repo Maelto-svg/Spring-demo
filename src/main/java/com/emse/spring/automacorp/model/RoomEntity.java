@@ -1,6 +1,5 @@
 package com.emse.spring.automacorp.model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.Set;

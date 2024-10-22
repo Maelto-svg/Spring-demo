@@ -1,8 +1,7 @@
 package com.emse.spring.automacorp.model;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
+
 
 @Entity
 @Table(name = "SP_WINDOW")

@@ -2,7 +2,6 @@ package com.emse.spring.automacorp.dto;
 
 import com.emse.spring.automacorp.model.HeaterEntity;
 import com.emse.spring.automacorp.model.RoomEntity;
-import com.emse.spring.automacorp.model.WindowEntity;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

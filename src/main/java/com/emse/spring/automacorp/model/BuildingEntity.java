@@ -2,8 +2,6 @@ package com.emse.spring.automacorp.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Set;
 
 @Entity
