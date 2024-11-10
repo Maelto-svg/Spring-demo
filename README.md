@@ -18,6 +18,13 @@ Run the following commands at the root of the project:
 
 When the application starts successfully, you'll see "Hello Spring" displayed in the terminal.
 
+
+### Testing
+Run the following commands at the root of the project: 
+```bash
+./gradlew test
+```
+
 ## Access Points
 
 ### Main URLs
