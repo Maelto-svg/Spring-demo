@@ -17,7 +17,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin
 @RestController // (1)
 @RequestMapping("/api/windows") // (2)
 @Transactional // (3)
@@ -33,6 +32,7 @@ public class WindowController {
         this.sensorDao =sensorDao;
     }
 
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     @GetMapping // (5)
     public List<Window> findAll() {
         return windowDao.findAll()
@@ -42,11 +42,13 @@ public class WindowController {
                 .collect(Collectors.toList());  // (6)
     }
 
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     @GetMapping(path = "/{id}")
     public Window findById(@PathVariable Long id) {
         return windowDao.findById(id).map(WindowMapper::of).orElse(null); // (7)
     }
 
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     @PostMapping // (8)
     public ResponseEntity<Window> create(@RequestBody WindowCommand window) { // (9)
         RoomEntity room = roomDao.findById(window.room_id()).orElse(null);
@@ -61,6 +63,7 @@ public class WindowController {
         return ResponseEntity.ok(WindowMapper.of(saved));
     }
 
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     @PutMapping(path = "/{id}") // (10)
     public ResponseEntity<Window> update(@PathVariable Long id, @RequestBody WindowCommand window) {
         WindowEntity entity = windowDao.findById(id).orElse(null);
@@ -78,6 +81,7 @@ public class WindowController {
         return ResponseEntity.ok(WindowMapper.of(saved));
     }
 
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable Long id) {
         windowDao.deleteById(id);

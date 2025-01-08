@@ -12,7 +12,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin
 @RestController // (1)
 @RequestMapping("/api/rooms") // (2)
 @Transactional
@@ -25,6 +24,7 @@ public class RoomControler {
     }
 
     @GetMapping // (5)
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     public List<Room> findAll() {
         return roomDao.findAll()
                 .stream()
@@ -33,6 +33,7 @@ public class RoomControler {
                 .collect(Collectors.toList());  // (6)
     }
 
+    @CrossOrigin(origins = { "http://localhost:8000" }, maxAge = 3600)
     @GetMapping(path = "/{id}")
     public Room findById(@PathVariable Long id) {
         return roomDao.findById(id).map(RoomMapper::of).orElse(null);

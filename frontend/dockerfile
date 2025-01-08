@@ -1,0 +1,14 @@
+# Use official Python image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy the front-end files
+COPY ./frontend /app
+
+# Expose the default port for Python HTTP server (port 8000)
+EXPOSE 8000
+
+# Command to run the simple HTTP server
+CMD ["python3", "-m", "http.server", "8000"]

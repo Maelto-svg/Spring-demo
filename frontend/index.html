@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window and Room Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Windows and Rooms Dashboard</h1>
+        
+        <div>
+            <label for="roomFilter">Select Room:</label>
+            <select id="roomFilter">
+                <option value="all">All Rooms</option>
+            </select>
+            <button onclick="filterWindows()">Filter Windows</button>
+        </div>
+        
+        <div id="windowsList">
+            <h2>Windows:</h2>
+            <ul id="windowItems">
+                <!-- List of windows will be inserted here -->
+            </ul>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
